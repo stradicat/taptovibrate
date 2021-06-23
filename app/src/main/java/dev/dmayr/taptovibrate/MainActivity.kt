@@ -40,32 +40,35 @@ class MainActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     private fun vibratePhoneShort() {
         val vibration = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibration.vibrate(
-                VibrationEffect.createOneShot(
-                    80,
-                    VibrationEffect.DEFAULT_AMPLITUDE
-                )
-            ) // 80 min
-        } else vibration.vibrate(80) // 80 min
-        textView.setTextColor(Color.GREEN)
-        textView.text = "bzzz"
+        if (vibration.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibration.vibrate(
+                    VibrationEffect.createOneShot(
+                        80,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                ) // 80 min
+            } else vibration.vibrate(80) // 80 min
+            textView.setTextColor(Color.GREEN)
+            textView.text = "bzzz"
+        } else noVibratorWarning(textView)
     }
 
     @Suppress("DEPRECATION")
     private fun vibratePhoneLong() {
         val vibration = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibration.vibrate(
-                VibrationEffect.createOneShot(
-                    180,
-                    VibrationEffect.DEFAULT_AMPLITUDE
-                )
-            ) // 160 min
-        } else vibration.vibrate(180) // 160 min
-
-        textView.setTextColor(Color.RED)
-        textView.text = "B Z Z Z"
+        if (vibration.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibration.vibrate(
+                    VibrationEffect.createOneShot(
+                        180,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                ) // 160 min
+            } else vibration.vibrate(180) // 160 min
+            textView.setTextColor(Color.RED)
+            textView.text = "B Z Z Z"
+        } else noVibratorWarning(textView)
     }
 }
 
@@ -75,4 +78,9 @@ fun onTick(duration: Duration) {
 
 fun onFinish(view: View) {
     view.visibility = View.INVISIBLE
+}
+
+private fun noVibratorWarning(textView: TextView) {
+    textView.setTextColor(Color.RED)
+    textView.text = "No vibrator device detected"
 }
