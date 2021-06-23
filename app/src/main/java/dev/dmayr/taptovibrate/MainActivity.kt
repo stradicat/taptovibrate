@@ -16,24 +16,26 @@ import java.time.Duration
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var textView: TextView
+    private var vibrationLong: Long = 180
+    private var vibrationShort: Long = 80
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        textView = findViewById<TextView>(R.id.textView)
-        binding.apply { textView.text }
-
-
-        binding.buttonShort.setOnClickListener {
-            vibratePhoneShort()
-            // onFinish(textView)
-        }
-        binding.buttonLong.setOnClickListener {
-            vibratePhoneLong()
-            // onFinish(textView)
-
+        textView = findViewById(R.id.textView)
+        binding.apply {
+            listOf(
+                textView,
+                buttonShort.setOnClickListener {
+                    vibratePhoneShort()
+                    // onFinish(textView)
+                },
+                buttonLong.setOnClickListener {
+                    vibratePhoneLong()
+                    // onFinish(textView)
+                }
+            )
         }
     }
 
@@ -44,11 +46,11 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibration.vibrate(
                     VibrationEffect.createOneShot(
-                        80,
+                        vibrationShort,
                         VibrationEffect.DEFAULT_AMPLITUDE
                     )
                 ) // 80 min
-            } else vibration.vibrate(80) // 80 min
+            } else vibration.vibrate(vibrationShort) // 80 min
             textView.setTextColor(Color.GREEN)
             textView.text = "bzzz"
         } else noVibratorWarning(textView)
@@ -61,11 +63,11 @@ class MainActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibration.vibrate(
                     VibrationEffect.createOneShot(
-                        180,
+                        vibrationLong,
                         VibrationEffect.DEFAULT_AMPLITUDE
                     )
                 ) // 160 min
-            } else vibration.vibrate(180) // 160 min
+            } else vibration.vibrate(vibrationLong) // 160 min
             textView.setTextColor(Color.RED)
             textView.text = "B Z Z Z"
         } else noVibratorWarning(textView)
