@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tap to Vibrate</string>
     <string name="presione_un_boton_para_vibrar">Presione un botón \n para vibrar alto</string>
     <string name="bzzz_corto">BZZZ corto</string>
     <string name="bzzz_largo">BZZZ largo</string>
