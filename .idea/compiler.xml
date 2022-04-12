@@ -3,9 +3,7 @@
   <component name="CompilerConfiguration">
     <option name="BUILD_PROCESS_HEAP_SIZE" value="768" />
     <option name="BUILD_PROCESS_ADDITIONAL_VM_OPTIONS" value="-Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/dmayr/JVM_heap_dumps -Dfile.encoding=UTF-8" />
-    <bytecodeTargetLevel target="1.8">
-      <module name="Tap_to_Vibrate.app" target="11" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-Xmx768m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$USER_HOME$/JVM_heap_dumps -Dfile.encoding=UTF-8" />
