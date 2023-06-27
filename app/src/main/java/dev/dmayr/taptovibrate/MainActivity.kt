@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
                         vibrationShort,
                         VibrationEffect.DEFAULT_AMPLITUDE
                     )
-                ) // 80 min
-            } else vibration.vibrate(vibrationShort) // 80 min
+                ) // 80 minimum
+            } else vibration.vibrate(vibrationShort) // 80 minimum
             textView.setTextColor(Color.GREEN)
             textView.text = "bzzz"
         } else noVibratorWarning(textView)
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                         VibrationEffect.DEFAULT_AMPLITUDE
                     )
                 ) // 160 min
-            } else vibration.vibrate(vibrationLong) // 160 min
+            } else vibration.vibrate(vibrationLong) // 160 minimum
             textView.setTextColor(Color.RED)
             textView.text = "B Z Z Z"
         } else noVibratorWarning(textView)
