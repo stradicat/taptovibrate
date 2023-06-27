@@ -3,6 +3,6 @@
   <component name="CompilerConfiguration">
     <option name="BUILD_PROCESS_HEAP_SIZE" value="768" />
     <option name="BUILD_PROCESS_ADDITIONAL_VM_OPTIONS" value="-Xmx512m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/dmayr/JVM_heap_dumps -Dfile.encoding=UTF-8" />
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="17" />
   </component>
 </project>
