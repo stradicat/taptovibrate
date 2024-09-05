@@ -3,4 +3,7 @@
     <string name="presione_un_boton_para_vibrar">Presione un botón \n para vibrar alto</string>
     <string name="bzzz_corto">BZZZ corto</string>
     <string name="bzzz_largo">BZZZ largo</string>
+    <string name="no_vibrator_device_detected">No vibrator device detected</string>
+    <string name="vibration_short">bzzz</string>
+    <string name="vibration_long">B Z Z Z</string>
 </resources>

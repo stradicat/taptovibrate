@@ -1,16 +1,15 @@
 package dev.dmayr.taptovibrate
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
 import dev.dmayr.taptovibrate.databinding.ActivityMainBinding
-import java.time.Duration
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -52,8 +51,8 @@ class MainActivity : AppCompatActivity() {
                 ) // 80 minimum
             } else vibration.vibrate(vibrationShort) // 80 minimum
             textView.setTextColor(Color.GREEN)
-            textView.text = "bzzz"
-        } else noVibratorWarning(textView)
+            textView.text = getString(R.string.vibration_short)
+        } else noVibratorWarning(textView, this)
     }
 
     @Suppress("DEPRECATION")
@@ -69,20 +68,20 @@ class MainActivity : AppCompatActivity() {
                 ) // 160 min
             } else vibration.vibrate(vibrationLong) // 160 minimum
             textView.setTextColor(Color.RED)
-            textView.text = "B Z Z Z"
-        } else noVibratorWarning(textView)
+            textView.text = getString(R.string.vibration_long)
+        } else noVibratorWarning(textView, this)
     }
 }
 
-fun onTick(duration: Duration) {
-// TODO: implement method to add a timer
-}
+//fun onTick(duration: Duration) {
+//// TODO: implement method to add a timer
+//}
 
-fun onFinish(view: View) {
-    view.visibility = View.INVISIBLE
-}
+//fun onFinish(view: View) {
+//    view.visibility = View.INVISIBLE
+//}
 
-private fun noVibratorWarning(textView: TextView) {
+private fun noVibratorWarning(textView: TextView, context: Context) {
     textView.setTextColor(Color.RED)
-    textView.text = "No vibrator device detected"
+    textView.text = context.getString(R.string.no_vibrator_device_detected)
 }
