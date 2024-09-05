@@ -14,7 +14,7 @@ import dev.dmayr.taptovibrate.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var textView: TextView
-    private var vibrationLong: Long = 180
+    private var vibrationLong: Long = 160
     private var vibrationShort: Long = 80
 
     override fun onCreate(savedInstanceState: Bundle?) {
