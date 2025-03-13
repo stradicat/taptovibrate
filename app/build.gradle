@@ -7,13 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "dev.dmayr.taptovibrate"
         minSdkVersion 19
-        //noinspection OldTargetApi
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -44,7 +43,9 @@ android {
 dependencies {
     //noinspection GradleDependency
     implementation "androidx.appcompat:appcompat:$version_appcompat"
+    //noinspection GradleDependency
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    //noinspection GradleDependency
     implementation "androidx.core:core-ktx:$version_core"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$version_lifecycle"
     implementation "com.google.android.material:material:$version_material"
