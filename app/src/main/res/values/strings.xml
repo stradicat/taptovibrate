@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Tap to Vibrate</string>
-    <string name="presione_un_boton_para_vibrar">Presione un botón \n para vibrar alto</string>
+    <string name="presione_un_boton_para_vibrar">Presione un botón \n para vibrar</string>
     <string name="bzzz_corto">BZZZ corto</string>
     <string name="bzzz_largo">BZZZ largo</string>
     <string name="no_vibrator_device_detected">No vibrator device detected</string>
