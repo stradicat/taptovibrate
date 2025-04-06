@@ -10,10 +10,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
 import dev.dmayr.taptovibrate.databinding.ActivityMainBinding
+import dev.dmayr.taptovibrate.ui.PendulumView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var textView: TextView
+    private lateinit var pendulumView: PendulumView
     private var vibrationLong: Long = 160
     private var vibrationShort: Long = 80
 
@@ -23,8 +25,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         textView = binding.textView
+        pendulumView = binding.pendulumView
+
         binding.apply {
             listOf(
+                pendulumView,
                 textView,
                 buttonShort.setOnClickListener {
                     vibratePhoneShort()
@@ -36,6 +41,9 @@ class MainActivity : AppCompatActivity() {
                 }
             )
         }
+
+        val calculatedBpm = 120
+        pendulumView.setBpm(calculatedBpm)
     }
 
     @Suppress("DEPRECATION")
