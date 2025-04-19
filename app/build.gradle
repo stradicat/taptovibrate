@@ -44,17 +44,15 @@ android {
     }
 }
 dependencies {
-    //noinspection GradleDependency
-    implementation "androidx.appcompat:appcompat:$version_appcompat"
-    //noinspection GradleDependency
-    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
-    //noinspection GradleDependency
-    implementation "androidx.core:core-ktx:$version_core"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$version_lifecycle"
-    implementation "com.google.android.material:material:$version_material"
-    implementation "com.jakewharton.timber:timber:$version_timber"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin"
-    testImplementation "junit:junit:4.13.2"
-    androidTestImplementation "androidx.test.ext:junit:1.2.1"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.6.1"
+
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.material
+    implementation libs.timber
+    implementation libs.kotlin.stdlib
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
 }
