@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace = "dev.dmayr.taptovibrate"
     compileSdk = 35
 
     defaultConfig {
@@ -25,10 +26,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
-        }
-        debug {
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -36,7 +33,6 @@ android {
         viewBinding = true
     }
 
-    namespace = "dev.dmayr.taptovibrate"
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
