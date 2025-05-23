@@ -24,7 +24,7 @@ androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtim
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
-material = { module = "com.google.android.material:material", version.ref = "material" }
+material = { module = "com.google.andro.material:material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
