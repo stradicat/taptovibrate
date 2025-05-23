@@ -1,11 +1,8 @@
 [versions]
 androidGradlePlugin = "8.8.2"
-#noinspection GradleDependency
-appcompat = "1.6.1" # last version compatible with API 19
-#noinspection GradleDependency
-constraintlayout = "2.1.4" # last version compatible with API 19
-#noinspection GradleDependency
-coreKtx = "1.13.1" # last version compatible with API 19
+appcompat = "1.7.0"
+constraintlayout = "2.2.1"
+coreKtx = "1.16.0"
 espressoCore = "3.6.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -13,8 +10,7 @@ junitVersion = "1.2.1"
 kotlin = "2.1.20" # stable Kotlin version
 #noinspection GradleDependency
 ksp = "2.1.20-2.0.1" # stable KSP version for Kotlin version
-#noinspection GradleDependency
-lifecycleRuntimeKtx = "2.8.7" # last version compatible with API 19
+lifecycleRuntimeKtx = "2.9.0"
 material = "1.12.0"
 timber = "5.0.1"
 
@@ -28,7 +24,7 @@ androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtim
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
-material = { module = "com.google.android.material:material", version.ref = "material" }
+material = { module = "com.google.andro.material:material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
