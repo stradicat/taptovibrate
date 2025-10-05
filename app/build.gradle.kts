@@ -1,3 +1,9 @@
+/*
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+import java.io.FileInputStream
+import java.util.Properties
+*/
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,14 +12,9 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
-composeCompiler {
-    reportsDestination = layout.buildDirectory.dir("compose_compiler")
-//    stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
-}
-
 android {
     namespace = "dev.dmayr.taptovibrate"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dev.dmayr.taptovibrate"
@@ -23,8 +24,33 @@ android {
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
+        signingConfigs {
+/*
+            create("release") {
+                val propsFile = rootProject.file("keystore.properties")
+                if (propsFile.exists()) {
+                    val props = Properties()
+                    props.load(FileInputStream(propsFile))
+
+                    storeFile = file(
+                        props["STORE_FILE"] as? String
+                            ?: error("Missing 'storeFile' in keystore.properties")
+                    )
+                    storePassword = props["STORE_PASSWORD"] as? String
+                        ?: error("Missing 'storePassword' in keystore.properties")
+                    keyAlias = props["KEY_ALIAS"] as? String
+                        ?: error("Missing 'keyAlias' in keystore.properties")
+                    keyPassword = props["KEY_PASSWORD"] as? String
+                        ?: error("Missing 'keyPassword' in keystore.properties")
+                } else {
+                    throw GradleException("keystore.properties not found! Cannot sign release build.")
+                }
+            }
+*/
+        }
+        signingConfig = signingConfigs.getByName("debug")
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,20 +59,29 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        compose = true
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -56,10 +91,12 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material)
+    implementation(libs.androidx.material3)
     implementation(libs.timber)
     implementation(libs.kotlin.stdlib)
-    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.material3)
+
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
